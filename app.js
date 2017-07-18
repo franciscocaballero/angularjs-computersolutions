@@ -17,22 +17,22 @@ var app = angular.module('computer',['ngRoute','ngResource'])
   })
   .when('/contact',{
     templateUrl: 'templates/contact.html',
-    controller: 'ContacCtrl'
+    controller: 'ContactCtrl'
   })
   .otherwise({redirectTo: '/main'})
 }])
 
 //CONTROLLERS
-.controller('MainCtrl', [ '$scope','$http', function($scope,$http){
+.controller('MainCtrl', [ '$scope', function($scope){
 
 }])
 
-.controller('ServicesCtrl', [ '$scope','$http', function($scope, $http) {
+.controller('ServicesCtrl', [ '$scope', '$http', function($scope, $http) {
   $http.get('services.json').then(function(response){
-    console.log(response)
+  $scope.services = response.data;
   });
 }])
 
-.controller('ContactCtrl', [ '$scope','$http', function($scope,$http){
+.controller('ContactCtrl', [ '$scope', function($scope){
 
 }])
